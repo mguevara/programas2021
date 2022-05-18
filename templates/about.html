@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="eS">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Análisis de frecuencia de palabras en programas presidenciales de las elecciones chile 2021" />
+        <meta name="author" content="Miguel Guevara - DatosLab.cl" />
+        <title>Elecciones Presidenciales CHILE 2021 - Palabras en Programas de Gobierno</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/favicon.ico')}}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+
+        <script src="//cdn.wordart.com/wordart.min.js" async defer></script>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">Presidenciales2021</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        
+                        {% for c in candidatos %}
+                        <li class="nav-item"><a class="nav-link" href="../{{c}}">{{c}}</a></li>
+                        {% endfor %}
+                        <li class="nav-item" active><a class="nav-link active" href="#!">AcercaDe</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <section>
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="mt-5 col-lg-7 text-light bg-dark">
+                        <h1 class="mt-3">¿Qué es?</h1>
+                        <p>Son visualizaciones interactivas de datos que muestran la frecuencia de términos en un programa presidencial y su contraste con otro los otros 6 programas presidenciales.</p>
+                        <h1 class="mt-3">¿Para qué?</h1>
+                        <p>Puede ayudar a explorar, de forma general, un programa presidencial.</p>
+
+                        <h1 class="mt-3">¿Cómo se usa?</h1>
+                        <p>La tabla de datos se puede usar de forma interactiva utilizando el cuadro de búsqueda, o presionando sobre el título de una columna para aplicar un orden específico.</p>
+                        <p>Cada palabra en las visualizaciones de texto se pueden presionar para realizar una búsqueda en Google respecto de este término y el candidato.</p>
+                        <p>El menú de candidatos aparece ordenado de forma aleatoria cada vez que una página es cargada </p>
+
+                    </div>
+
+                    <div class="mt-5 col-lg-5 text-light bg-dark">
+                        <h1 class="mt-3" >Metodología</h1> 
+                        <p >
+                           <ul>
+                               <li> Los programas se obtuvieron desde la página oficial de los candidatos o del Servel en caso de no estar disponible en su página.</li>
+                                <li>Los textos en archivos .pdf se copiaron a un archivo .txt. </li>
+                                <li>Se eliminaron pies y encabezados de página. </li>
+                                <li>Los programas se procesan con Python3</li>
+                                <li>Para el contraste se utiliza la fórmula Tf/iDF.</li>
+                                <li>Los códigos y datos se encuentran disponibles en <a class="link-light bg-dark" href="https://github.com/mguevara/NubesProgramasPresidenciales">este repositorio en GitHub.</a></li>
+                           </ul>
+                        </p>
+                        <h1 class="mt-3" >¿Quién?</h1> 
+                        <p >
+                           Este proyecto está realizado por el Laboratorio de <a class="link-light bg-dark" href="https://datoslab.cl/">DataScience</a> de la <a class="link-light bg-dark" href="https://www.upla.cl/facultad/ingenieria/">Facultad de Ingeniería</a> en la <a class="link-light bg-dark" href="https://www.upla.cl/portada/">Universidad de Playa Ancha</a>.
+                        </p>
+                        
+                                                                
+                    </div>
+
+                    
+                    
+                </div>
+                
+            </div>
+        </section>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
+</html>
